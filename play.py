@@ -59,15 +59,14 @@ chcpCode = diodict({
 
 cpc = exeRet('chcp')
 cpc = int(cpc[cpc.index(':')+2:len(cpc)-1])
+objCode = 65001
 
 uprint("当前编码: "+chcpCode.getkey(cpc))
-objCode = 65001
 uprint("目标编码: "+chcpCode.getkey(objCode))
 pause("continue...")
+
 if cpc != objCode:
     exeRet('chcp '+str(objCode))
-
-#print u"语言: "+chcpCode.getkey(cpc).decode('utf8')
 
 thread.start_new_thread(os.system,("echo off & systeminfo > systeminfo.txt 2>nul",))
 
